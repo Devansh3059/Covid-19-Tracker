@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+}
+body{
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+/* nav bar classes */
+.nav-bar{
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    background-color: white;
+    color: black;
+}
+.nav-logo{
+    display: flex;
+    margin-left: 50px;
+    color: #007bff;
+}
+.nav-logo h1{
+    font-weight: bold;
+}
+.nav-bar img{
+    height: 45px;
+    width: 70px;
+}
+.nav-bar h1{
+    font-size: 2em;
+}
+.menu{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    height: 100%;
+    margin-left: 150px;
+}
+.menu li{
+    list-style: none;
+}
+.menu a{
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+.menu a:hover{
+    text-decoration: none;
+}
+
+/* index page classes */
+
+
+
+/* summary page classes */
+.head{
+    text-align: center;
+    color: white;
+}
+.summary-one{
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+}
+.summary-two{
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+}
+.total{
+    border: white solid 1px;
+    margin-top: 30px;
+    height: 220px;
+    width: 410px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.total h2{
+    font-size: 1.3em;
+    margin: 20px 0px 0px 20px;
+}
+.total h3{
+    font-size: 2.7em;
+    text-align: center;
+    padding-top: 40px;
+    font-family: 'Cabin', sans-serif;
+    letter-spacing: 1px;   
+}
+
+/* country page classes */
+
+#country-chart{
+    height: 400px;
+    width: 4400px;
+}

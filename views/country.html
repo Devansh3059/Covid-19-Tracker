@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid 19 Tracker</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="col-md-5 nav-logo">
+            <img src="/public/img/virus.png" alt="">
+            <h1>Covid - 19 Tracker</h1>
+        </div>
+        <ul class="menu">
+            <a href="index.html"><li>Home</li></a>
+            <a href="summary.html"><li>Summary</li></a>
+            <a href=""><li>Countries</li></a>
+            <a href=""><li>About Me</li></a>
+        </ul>
+    </nav>
+    <h1 class="head">Novel Corona Virus Tracker</h1>
+    <form action="">
+        <select class="c-select">
+            <option value="0">ALA Aland Islands</option>
+            <option value="1">Afghanistan</option>
+            <option value="2">Alabania</option>
+            <option value="3">Algeria</option>
+            <option value="101">India</option>
+            </select>
+            <input class="c-submit" type="submit">
+    </form>
+    <form action="">
+        <input type="date" class="d-select">
+        <input type="submit" class="d-submit">
+    </form>
+    <p>Total cases</p>
+    <h3 class="cases"></h3>
+    <canvas id="country-chart"></canvas>
+</body>
+<script src="/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+</html>

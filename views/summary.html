@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid 19 Tracker</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="col-md-5 nav-logo">
+            <img src="/public/img/virus.png" alt="">
+            <h1>Covid - 19 Tracker</h1>
+        </div>
+        <ul class="menu">
+            <a href="index.html">
+                <li>Home</li>
+            </a>
+            <a href="">
+                <li>Summary</li>
+            </a>
+            <a href="country.html">
+                <li>Countries</li>
+            </a>
+            <a href="">
+                <li>About Me</li>
+            </a>
+        </ul>
+    </nav>
+    <h1 class="head">Global Data Dashboard</h1>
+    <div class="summary-one row">
+        <div class="total">
+            <h2>Total Confirmed</h2>
+            <h3 class="counter c-total"></h3>
+        </div>
+
+        <div class="total">
+            <h2>Total Recovered</h2>
+            <h3 class="counter r-total"></h3>
+        </div>
+
+        <div class="total">
+            <h2>Total Deaths</h2>
+            <h3 class="counter d-total"></h3>
+        </div>
+    </div>
+    <div class="summary-two row">
+        <div class="total">
+            <h2>New Cases </h2>
+            <h3 class="counter c-new"></h3>
+        </div>
+        <div class="total">
+            <h2>New Recovered</h2>
+            <h3 class="counter r-new"></h3>
+        </div>
+
+        <div class="total">
+            <h2>New Deaths</h2>
+            <h3 class="counter d-new"></h3>
+        </div>
+
+        
+
+
+    </div>
+</body>
+<script src="/app.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+</html>
