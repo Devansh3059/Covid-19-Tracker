@@ -19,28 +19,29 @@ window.onload = function () {
     var dsubmit = document.querySelector(".d-submit");
     var dselect = document.querySelector('.d-select');
     var cases = document.querySelector('.cases');
-    var countrychart = document.querySelector("#country-chart").getContext("2d")
+    var countryname = document.querySelector('.country-name');
+
 
 
     //Summary Page Code
     if (window.location.href == "http://127.0.0.1:5500/views/summary.html") {
-        
-        function getSummary()
-        {fetch("https://api.covid19api.com/summary")
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                const { NewConfirmed, NewRecovered, NewDeaths, TotalConfirmed, TotalRecovered, TotalDeaths } = data.Global;
-                // console.log(NewConfirmed)
-                cnew.textContent = NewConfirmed;
-                rnew.textContent = NewRecovered;
-                dnew.textContent = NewDeaths;
-                ctotal.textContent = TotalConfirmed;
-                rtotal.textContent = TotalRecovered;
-                dtotal.textContent = TotalDeaths;
-                $(".counter").counterUp({delay:50,time:1500})
-            })
-            .catch(err => console.log(err))
+
+        function getSummary() {
+            fetch("https://api.covid19api.com/summary")
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const { NewConfirmed, NewRecovered, NewDeaths, TotalConfirmed, TotalRecovered, TotalDeaths } = data.Global;
+                    // console.log(NewConfirmed)
+                    cnew.textContent = NewConfirmed;
+                    rnew.textContent = NewRecovered;
+                    dnew.textContent = NewDeaths;
+                    ctotal.textContent = TotalConfirmed;
+                    rtotal.textContent = TotalRecovered;
+                    dtotal.textContent = TotalDeaths;
+                    $(".counter").counterUp({ delay: 50, time: 1500 })
+                })
+                .catch(err => console.log(err))
         }
         getSummary();
     }
@@ -50,6 +51,7 @@ window.onload = function () {
     //Country Page Code
     if (window.location.href == "http://127.0.0.1:5500/views/country.html") {
         if (csubmit != undefined) {
+            var countrychart = document.querySelector("#country-chart").getContext("2d")
             csubmit.addEventListener("click", (e) => {
                 e.preventDefault();
                 var cvalue = cselect.value;
@@ -68,22 +70,57 @@ window.onload = function () {
                     .then(data => {
                         const { NewConfirmed, NewRecovered, NewDeaths, TotalConfirmed, TotalRecovered, TotalDeaths } = data.Countries[cvalue]
                         console.log(data.Countries[cvalue])
-                        console.log(TotalConfirmed)
-                        cases.textContent = NewConfirmed
-                        makeChart(NewConfirmed, NewRecovered, NewDeaths, TotalConfirmed, TotalRecovered, TotalDeaths);
+                        var ctext = data.Countries[cvalue].Country
+                        // console.log(TotalConfirmed)
+                        // cases.textContent = NewConfirmed
+                        fetch(`https://world-population.p.rapidapi.com/population?country_name=${ctext}`, {
+                            "method": "GET",
+                            "headers": {
+                                "x-rapidapi-host": "world-population.p.rapidapi.com",
+                                "x-rapidapi-key": "fed9678fe0msh1d8878f5e7f368bp130545jsnd40588644af8"
+                            }
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                const{population} = data.body;
+                                console.log(population)
+                                countryname.textContent = ctext
+                                makeChart(TotalConfirmed, TotalRecovered, TotalDeaths, population);
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            });
+                        
+
                     })
-                function makeChart(NewConfirmed, NewRecovered, NewDeaths, TotalConfirmed, TotalRecovered, TotalDeaths){
+                function makeChart(TotalConfirmed, TotalRecovered, TotalDeaths, population) {
+                    // Chart.defaults.global.defaultFontSize = 16
+
+                    Chart.defaults.global.defaultFontFamily = "poppins";
+                    Chart.defaults.global.defaultFontColor = "white";
                     var pieChart = new Chart(countrychart, {
                         type: 'pie',
                         data: {
-                            labels:[NewConfirmed, NewRecovered, NewDeaths, TotalConfirmed, TotalRecovered, TotalDeaths],
-                            datasets:[NewConfirmed, NewRecovered, NewDeaths, TotalConfirmed, TotalRecovered, TotalDeaths]
+                            datasets: [{
+                                data: [TotalConfirmed - TotalRecovered, TotalRecovered, TotalDeaths],
+                                backgroundColor: ["orange", "green", "red"]
+                            }],
+                            labels: ["Active Cases ", "Recovered Cases", "Deaths"]
+
                         },
                         options: {
-                            title:{
-                                display:true,
-                                text:"India"
+                            title: {
+                                display: true,
+                                text: "Total Population : " + population,                    
+                                fontSize: 24
+                            },
+                            legend: {
+                                position: "bottom",
+                                labels: {
+                                    fontSize: 14
+                                }
                             }
+
                         }
                     });
                 }
