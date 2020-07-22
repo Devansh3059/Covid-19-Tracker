@@ -94,6 +94,34 @@ body{
 }
 
 /* country page classes */
+.c-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.c-select{
+    width: 700px;
+    height: 30px;
+    border-radius: 10px;
+}
+.c-submit{
+    margin-top: 10px;
+    background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/,Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+    padding: 4px 4px 4px 4px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 550;
+    color: white;
+    letter-spacing: 1px;
+}
+.c-submit:hover{
+    box-shadow: 2px 2px 5px yellow;
+    font-size: 1.1em;
+}
 .country-name{
     font-size: 2em;
     text-align: center;
