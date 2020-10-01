@@ -33,6 +33,7 @@ window.onload = function () {
                     console.log(data)
                     const { NewConfirmed, NewRecovered, NewDeaths, TotalConfirmed, TotalRecovered, TotalDeaths } = data.Global;
                     // console.log(NewConfirmed)
+                    // console.log(NewConfirmed)
                     cnew.textContent = NewConfirmed;
                     rnew.textContent = NewRecovered;
                     dnew.textContent = NewDeaths;
